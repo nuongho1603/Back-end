@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 import javax.transaction.Transactional;
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Repository
@@ -17,6 +18,9 @@ public interface IBenhAnRepository extends JpaRepository<BenhAn,Integer> {
 
     @Query(value = "select ba.* from `benh_an` ba", nativeQuery = true)
     List<BenhAn> getList();
+
+    @Query(value = "select ba.* from `benh_an` ba", nativeQuery = true)
+    List<BenhAn> getPageList(Pageable pageable);
 
     @Modifying
     @Query(value = "delete from benh_an where id = :id",nativeQuery = true)

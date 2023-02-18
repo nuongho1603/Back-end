@@ -5,6 +5,7 @@ import com.connect_exam.repository.IBenhAnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 @Service
@@ -15,6 +16,11 @@ public class BenhAnService implements IBenhAnService{
     @Override
     public List<BenhAn> getAll() {
         return iBenhAnRepository.getList();
+    }
+
+    @Override
+    public List<BenhAn> getPageList(Pageable pageable) {
+        return iBenhAnRepository.getPageList(pageable);
     }
 
     @Override
