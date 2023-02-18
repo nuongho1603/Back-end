@@ -18,8 +18,23 @@ public class BenhAnService implements IBenhAnService{
     }
 
     @Override
-    public void deleteBenhAn(Integer id) {
+    public void deleteBenhAn(int id) {
         iBenhAnRepository.deleteBenhAn(id);
+    }
+
+    @Override
+    public BenhAn findById(int id) {
+        return iBenhAnRepository.findById(id);
+    }
+
+    @Override
+    public void update(String maBenhAn, int benhNhan, String ngayNhapVien, String ngayRaVien, String lyDo, String phuongPhap, String bacSiDieuTri, int id) {
+        iBenhAnRepository.update(maBenhAn,benhNhan,ngayNhapVien,ngayRaVien,lyDo,phuongPhap,bacSiDieuTri,id);
+    }
+
+    @Override
+    public void add(String maBenhAn, int benhNhan, String ngayNhapVien, String ngayRaVien, String lyDo, String phuongPhap, String bacSiDieuTri) {
+        iBenhAnRepository.add(maBenhAn,benhNhan,ngayNhapVien,ngayRaVien,lyDo,phuongPhap,bacSiDieuTri);
     }
 
 
