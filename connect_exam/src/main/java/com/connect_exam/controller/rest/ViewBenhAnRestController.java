@@ -3,6 +3,7 @@ package com.connect_exam.controller.rest;
 import com.connect_exam.model.BenhAn;
 import com.connect_exam.service.IBenhAnService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -29,14 +30,20 @@ public class ViewBenhAnRestController {
         return new ResponseEntity<>(benhAnList, HttpStatus.OK);
     }
 
-    @GetMapping("/benhAn/page")
-    public ResponseEntity<List<BenhAn>> getPage(@PageableDefault(size = 1) Pageable pageable) {
-        List<BenhAn> benhAnList = iBenhAnService.getPageList(pageable);
-        if (benhAnList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(benhAnList, HttpStatus.OK);
-    }
+//    @GetMapping("/benhAn/page")
+//    public ResponseEntity<List<BenhAn>> getPage(@PageableDefault(size = 2) Pageable pageable) {
+//        Page<BenhAn> benhAnList = iBenhAnService.getPageList(pageable);
+//        if (benhAnList.isEmpty()) {
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        return new ResponseEntity<>(benhAnList, HttpStatus.OK);
+//    }
+
+//    @GetMapping("/benhAn/search")
+//    public ResponseEntity<Page<BenhAn>> searchByName(@RequestParam(name = "search",defaultValue = "") String search,@PageableDefault(size = 2) Pageable pageable) {
+//        Page<BenhAn> benhAnPage = iBenhAnService.searchByName(search,pageable);
+//        return new ResponseEntity<>(benhAnPage, HttpStatus.OK);
+//    }
 
     @Modifying
     @DeleteMapping("/benhAn/{id}")

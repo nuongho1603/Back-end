@@ -3,6 +3,7 @@ package com.connect_exam.service;
 import com.connect_exam.model.BenhAn;
 import com.connect_exam.repository.IBenhAnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
@@ -18,10 +19,15 @@ public class BenhAnService implements IBenhAnService{
         return iBenhAnRepository.getList();
     }
 
-    @Override
-    public List<BenhAn> getPageList(Pageable pageable) {
-        return iBenhAnRepository.getPageList(pageable);
-    }
+//    @Override
+//    public Page<BenhAn> getPageList(Pageable pageable) {
+//        return iBenhAnRepository.getPageList(pageable);
+//    }
+//
+//    @Override
+//    public Page<BenhAn> searchByName(String tenBenhAn, Pageable pageable) {
+//        return iBenhAnRepository.searchByName(tenBenhAn,pageable);
+//    }
 
     @Override
     public void deleteBenhAn(int id) {
