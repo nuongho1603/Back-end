@@ -20,24 +20,24 @@ import java.util.List;
 public class ViewBenhAnRestController {
     @Autowired
     private IBenhAnService iBenhAnService;
-
-    @GetMapping("/benhAn")
-    public ResponseEntity<List<BenhAn>> getAll() {
-        List<BenhAn> benhAnList = iBenhAnService.getAll();
-        if (benhAnList.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(benhAnList, HttpStatus.OK);
-    }
-
-//    @GetMapping("/benhAn/page")
-//    public ResponseEntity<List<BenhAn>> getPage(@PageableDefault(size = 2) Pageable pageable) {
-//        Page<BenhAn> benhAnList = iBenhAnService.getPageList(pageable);
+//
+//    @GetMapping("/benhAn")
+//    public ResponseEntity<List<BenhAn>> getAll() {
+//        List<BenhAn> benhAnList = iBenhAnService.getAll();
 //        if (benhAnList.isEmpty()) {
 //            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 //        }
 //        return new ResponseEntity<>(benhAnList, HttpStatus.OK);
 //    }
+
+    @GetMapping("/benhAn/page")
+        public ResponseEntity<Page<BenhAn>> getPage(@PageableDefault(size = 2) Pageable pageable) {
+        Page<BenhAn> benhAnList = iBenhAnService.getPageList(pageable);
+        if (benhAnList.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(benhAnList, HttpStatus.OK);
+    }
 
 //    @GetMapping("/benhAn/search")
 //    public ResponseEntity<Page<BenhAn>> searchByName(@RequestParam(name = "search",defaultValue = "") String search,@PageableDefault(size = 2) Pageable pageable) {

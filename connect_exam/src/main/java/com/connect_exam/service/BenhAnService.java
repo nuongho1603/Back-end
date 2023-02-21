@@ -19,10 +19,10 @@ public class BenhAnService implements IBenhAnService{
         return iBenhAnRepository.getList();
     }
 
-//    @Override
-//    public Page<BenhAn> getPageList(Pageable pageable) {
-//        return iBenhAnRepository.getPageList(pageable);
-//    }
+    @Override
+    public Page<BenhAn> getPageList(Pageable pageable) {
+        return iBenhAnRepository.getPageList(pageable);
+    }
 //
 //    @Override
 //    public Page<BenhAn> searchByName(String tenBenhAn, Pageable pageable) {

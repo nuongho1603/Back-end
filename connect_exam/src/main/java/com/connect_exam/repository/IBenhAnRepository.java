@@ -21,8 +21,8 @@ public interface IBenhAnRepository extends JpaRepository<BenhAn,Integer> {
     @Query(value = "select ba.* from `benh_an` ba", nativeQuery = true)
     List<BenhAn> getList();
 
-//    @Query(value = "select ba.* from `benh_an` ba", nativeQuery = true)
-//    Page<BenhAn> getPageList(Pageable pageable);
+    @Query(value = "select ba.* from `benh_an` ba", nativeQuery = true)
+    Page<BenhAn> getPageList(Pageable pageable);
 //
 //    @Query(value = "select ba.* from `benh_an` ba where ba.ten_benh_an like concat('%',tenBenhAn,'%')", nativeQuery = true)
 //    Page<BenhAn> searchByName(@RequestParam("tenBenhAn") String tenBenhAn, Pageable pageable);

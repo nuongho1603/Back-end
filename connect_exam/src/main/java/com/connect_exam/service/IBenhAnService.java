@@ -10,7 +10,7 @@ import java.util.List;
 public interface IBenhAnService {
     List<BenhAn> getAll();
 
-//    Page<BenhAn> getPageList(Pageable pageable);
+    Page<BenhAn> getPageList(Pageable pageable);
 //    Page<BenhAn> searchByName(String tenBenhAn,Pageable pageable);
 
     void deleteBenhAn(int id);
